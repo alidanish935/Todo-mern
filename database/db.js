@@ -6,7 +6,7 @@ const Connection = (USERNAME,PASSWORD) =>{
     const url ='mongodb://localhost:27017/playground'
     const URL =`mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.qphkqzh.mongodb.net/?retryWrites=true&w=majority`
   // try{
-        mongoose.connect(url, {useNewUrlParser:true})
+        mongoose.connect(URL, {useNewUrlParser:true})
            // console.log('Database connected Successfully');
 
         mongoose.connection.on('connected', () => {
