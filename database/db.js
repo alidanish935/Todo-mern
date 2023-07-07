@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 dotenv.config();
-const URl = process.env.MONGO_URI
+const URl = process.env.MONGO_URL
 
 const Connection = (USERNAME,PASSWORD) =>{
     ////${USERNAME}:${PASSWORD}
@@ -9,11 +9,13 @@ const Connection = (USERNAME,PASSWORD) =>{
     const url ='mongodb://localhost:27017/playground'
     const URL =`mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.qphkqzh.mongodb.net/?retryWrites=true&w=majority`
   // try{
-        mongoose.connect(URl, {useNewUrlParser:true})
+       // mongoose.connect(URl, {useNewUrlParser:true})
+         mongoose.connect(process.env.MONGO_URL);
+
            // console.log('Database connected Successfully');
 
         mongoose.connection.on('connected', () => {
-            console.log('Database connected Successfully');
+            console.log(`Server Running On ${mongoose.connection.host}`);
         })
         mongoose.connection.on('disconnected', () => {
             console.log('Database disconnected')
