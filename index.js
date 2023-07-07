@@ -25,10 +25,7 @@ const PASSWORD = process.env.DB_PASSWORD;
 
 app.use('/',Routes);
 
-app.use(express.static(path.join(__dirname,"./client/build/index.html")))
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  });
+
 
 const PORT = process.env.PORT|| 8000
 Connection(USERNAME,PASSWORD);
